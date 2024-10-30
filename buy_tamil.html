@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>காய்கறி விலை பட்டியல்</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .form-container {
+            margin-top: 30px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="tel"],
+        .form-container select,
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Added margin-bottom to the submit button */
+        .form-container button {
+            margin-bottom: 40px; /* Adjusted margin to prevent overlap */
+        }
+
+        .fixed-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+         காய்கறி விலை பட்டியல்
+    </div>
+
+    <div class="content">
+        <table>
+            <tr>
+                <th>பொருள்</th>
+                <th>அளவு</th>
+                <th>விலை (₹)</th>
+            </tr>
+            <tr>
+                <td><img src="bigonion.jpeg" alt="Onion Big"> வெங்காயம் (பெரியது)</td>
+                <td>1 கிலோ</td>
+                <td>₹ 53.00</td>
+            </tr>
+            <tr>
+                <td><img src="small onion.jpeg" alt="Onion Small"> வெங்காயம் (சிறியது)</td>
+                <td>1 கிலோ</td>
+                <td>₹ 90.00</td>
+            </tr>
+            <tr>
+                <td><img src="plantation_flower.jpeg" alt="Plantain Flower"> வாழைப்பூ</td>
+                <td>1 கிலோ</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="plantation_stem.jpeg" alt="Plantain Stem"> வாழைத்தண்டு</td>
+                <td>1 துண்டு</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="potato.jpeg" alt="Potato"> உருளைக்கிழங்கு</td>
+                <td>1 கிலோ</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="pumpkin.jpeg" alt="Pumpkin"> பூசணி</td>
+                <td>1 கிலோ</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="radish.jpg" alt="Radish"> முள்ளங்கி</td>
+                <td>1 கிலோ</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="ridge_guard.jpeg" alt="Ridge Gourd"> பீர்க்கங்காய்</td>
+                <td>1 கிலோ</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="scarlet-gourd.png" alt="Scarlet Gourd"> கோவக்காய்</td>
+                <td>1 கிலோ</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="snake-gourds.webp" alt="Snake Gourd"> புடலங்காய்</td>
+                <td>1 கிலோ</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="sweetpotatao.jpeg" alt="Sweet Potato"> இனிப்பு உருளை</td>
+                <td>1 கிலோ</td>
+                <td>₹ 60.00</td>
+            </tr>
+            <tr>
+                <td><img src="white-tapioca-pearls.jpg" alt="Tapioca"> மரவள்ளிக்கிழங்கு</td>
+                <td>1 கிலோ</td>
+                <td>₹ 60.00</td>
+            </tr>
+            <!-- Additional Rows -->
+            <tr>
+                <td><img src="coriander_seeds.jpeg" alt="Coriander Seeds"> கொத்தமல்லி விதைகள்</td>
+                <td>1 கிலோ</td>
+                <td>₹ 100.00</td>
+            </tr>
+            <tr>
+                <td><img src="bardgram.jpg" alt="Barn Yard Millet"> குதிரைவாலி</td>
+                <td>1 கிலோ</td>
+                <td>₹ 35.00</td>
+            </tr>
+            <tr>
+                <td><img src="sorghum.jpg" alt="Sorghum Millet"> சோளம்</td>
+                <td>1 கிலோ</td>
+                <td>₹ 42.00</td>
+            </tr>
+        </table>
+
+        <!-- Buyer Form -->
+        <div class="form-container">
+            <h2>வாங்குபவர் விவரங்கள்</h2>
+            <form action="#" method="POST">
+                <label for="name">பெயர்:</label>
+                <input type="text" id="name" name="name" required placeholder="உங்கள் பெயரை உள்ளிடவும்">
+                
+                <label for="address">முகவரி:</label>
+                <input type="text" id="address" name="address" required placeholder="உங்கள் முகவரியை உள்ளிடவும்">
+                
+                <label for="phone">தொலைபேசி எண்:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="உங்கள் தொலைபேசி எண்ணை உள்ளிடவும்">
+
+                <label for="item">பொருள்:</label>
+                <select id="item" name="item" required>
+                    <option value="Onion Big">வெங்காயம் (பெரியது)</option>
+                    <option value="Onion Small">வெங்காயம் (சிறியது)</option>
+                    <option value="Plantain Flower">வாழைப்பூ</option>
+                    <option value="Plantain Stem">வாழைத்தண்டு</option>
+                    <option value="Potato">உருளைக்கிழங்கு</option>
+                    <option value="Pumpkin">பூசணி</option>
+                    <option value="Radish">முள்ளங்கி</option>
+                    <option value="Ridge Gourd">பீர்க்கங்காய்</option>
+                    <option value="Scarlet Gourd">கோவக்காய்</option>
+                    <option value="Snake Gourd">புடலங்காய்</option>
+                    <option value="Sweet Potato">இனிப்பு உருளை</option>
+                    <option value="Tapioca">மரவள்ளிக்கிழங்கு</option>
+                    <option value="Coriander Seeds">கொத்தமல்லி விதைகள்</option>
+                    <option value="Barn Yard Millet">குதிரைவாலி</option>
+                    <option value="Sorghum Millet">சோளம்</option>
+                </select>
+
+                <label for="quantity">அளவு (கிலோ அல்லது துண்டுகள்):</label>
+                <input type="number" id="quantity" name="quantity" required placeholder="அளவை உள்ளிடவும்">
+                
+                <button type="submit">ஆர்டர் சமர்ப்பிக்க</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="fixed-footer">
+        <footer>
+            <p>&copy; 2024 இயற்கை விவசாயம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+            <p>எங்களை தொடர்பு கொள்ளவும்: +91-XXXXXXXXX | மின்னஞ்சல்: slbhavya.eluri@gmail.com</p>
+        </footer>
+    </div>
+
+</body>
+</html>

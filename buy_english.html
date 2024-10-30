@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Price List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .form-container {
+            margin-top: 30px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="tel"],
+        .form-container select,
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+           
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Added margin-bottom to the submit button */
+        .form-container button {
+            margin-bottom: 100px; /* Adjusted margin to prevent overlap */
+        }
+
+        .fixed-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+         Vegetable Price List
+    </div>
+
+    <div class="content">
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price (₹)</th>
+            </tr>
+            <tr>
+                <td><img src="bigonion.jpeg" alt="Onion Big"> Onion (Big)</td>
+                <td>1 Kg</td>
+                <td>₹ 53.00</td>
+            </tr>
+            <tr>
+                <td><img src="small onion.jpeg" alt="Onion Small"> Onion (Small)</td>
+                <td>1 Kg</td>
+                <td>₹ 90.00</td>
+            </tr>
+            <tr>
+                <td><img src="plantation_flower.jpeg" alt="Plantain Flower"> Plantain Flower</td>
+                <td>1 Kg</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="plantation_stem.jpeg" alt="Plantain Stem"> Plantain Stem</td>
+                <td>1 Piece</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="potato.jpeg" alt="Potato"> Potato</td>
+                <td>1 Kg</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="pumpkin.jpeg" alt="Pumpkin"> Pumpkin</td>
+                <td>1 Kg</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="radish.jpg" alt="Radish"> Radish</td>
+                <td>1 Kg</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="ridge_guard.jpeg" alt="Ridge Gourd"> Ridge Gourd</td>
+                <td>1 Kg</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="scarlet_guard.jpeg" alt="Scarlet Gourd"> Scarlet Gourd</td>
+                <td>1 Kg</td>
+                <td>₹ 50.00</td>
+            </tr>
+            <tr>
+                <td><img src="snake-gourds.webp" alt="Snake Gourd"> Snake Gourd</td>
+                <td>1 Kg</td>
+                <td>₹ 30.00</td>
+            </tr>
+            <tr>
+                <td><img src="sweetpotatao.jpeg" alt="Sweet Potato"> Sweet Potato</td>
+                <td>1 Kg</td>
+                <td>₹ 60.00</td>
+            </tr>
+            <tr>
+                <td><img src="white-tapioca-pearls.jpg" alt="Tapioca"> Tapioca</td>
+                <td>1 Kg</td>
+                <td>₹ 60.00</td>
+            </tr>
+            <!-- Additional Rows -->
+            <tr>
+                <td><img src="coriander_seeds.jpeg" alt="Coriander Seeds"> Coriander Seeds</td>
+                <td>1 Kg</td>
+                <td>₹ 100.00</td>
+            </tr>
+            <tr>
+                <td><img src="bardgram.jpg" alt="Barn Yard Millet"> Barn Yard Millet</td>
+                <td>1 Kg</td>
+                <td>₹ 35.00</td>
+            </tr>
+            <tr>
+                <td><img src="sorghum.jpg" alt="Sorghum Millet"> Sorghum Millet</td>
+                <td>1 Kg</td>
+                <td>₹ 42.00</td>
+            </tr>
+        </table>
+
+        <!-- Buyer Form -->
+        <div class="form-container">
+            <h2>Buyer Details</h2>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required placeholder="Enter your address">
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+
+                <label for="item">Item:</label>
+                <select id="item" name="item" required>
+                    <option value="Onion Big">Onion (Big)</option>
+                    <option value="Onion Small">Onion (Small)</option>
+                    <option value="Plantain Flower">Plantain Flower</option>
+                    <option value="Plantain Stem">Plantain Stem</option>
+                    <option value="Potato">Potato</option>
+                    <option value="Pumpkin">Pumpkin</option>
+                    <option value="Radish">Radish</option>
+                    <option value="Ridge Gourd">Ridge Gourd</option>
+                    <option value="Scarlet Gourd">Scarlet Gourd</option>
+                    <option value="Snake Gourd">Snake Gourd</option>
+                    <option value="Sweet Potato">Sweet Potato</option>
+                    <option value="Tapioca">Tapioca</option>
+                    <option value="Coriander Seeds">Coriander Seeds</option>
+                    <option value="Barn Yard Millet">Barn Yard Millet</option>
+                    <option value="Sorghum Millet">Sorghum Millet</option>
+                </select>
+
+                <label for="quantity">Quantity (in Kg or Pieces):</label>
+                <input type="number" id="quantity" name="quantity" required placeholder="Enter quantity">
+                
+                <button type="submit">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="fixed-footer">
+        <p>&copy; 2024 Organic farming. All rights reserved.</p>
+        <p>Contact us: +91-XXXXXXXXXX | Email: slbhavya.eluri@gmail.com</p>
+
+    </div>
+
+</body>
+</html>

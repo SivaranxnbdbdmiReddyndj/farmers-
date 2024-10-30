@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>புகுபதிகை</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return emailPattern.test(email);
+        }
+
+        function loginRedirect(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Clear previous error message
+            errorMessage.textContent = "";
+
+            // Validate email format
+            if (!validateEmail(email)) {
+                errorMessage.textContent = "சரியான மின்னஞ்சல் முகவரியை உள்ளிடுங்கள்.";
+                return;
+            }
+
+            // Validate password length (example: minimum 6 characters)
+            if (password.length < 6) {
+                errorMessage.textContent = "கடவுச்சொல் குறைந்தது 6 எழுத்துக்கள் நீளமாக இருக்க வேண்டும்.";
+                return;
+            }
+
+            // If validation passes, redirect to home_tamil.html
+            window.location.href = "home_tamil.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>புகுபதிகை</h2>
+        <form id="loginForm" onsubmit="loginRedirect(event)">
+            <label for="email">மின்னஞ்சல் முகவரி/பயனர் பெயர்:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">கடவுச்சொல்:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">புகுபதிகை</button>
+        </form>
+        <p id="error-message" style="color: red;"></p> <!-- Error message display -->
+        <p class="create-account">புதிய பயனர் ? <a href="signup_tamil.html">ஒரு கணக்கை உருவாக்கவும்</a></p>
+    </div>
+</body>
+</html>

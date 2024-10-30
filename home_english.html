@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Farming</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            background-image: url('_MG_5435c.jpg');
+            background-size: cover; /* Ensure the image covers the entire banner */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            transition: background-color 0.3s;
+        }
+        .heading {
+            background-color:white;
+            color:rgb(126, 123, 123);
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .heading:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .heading h1 {
+            margin: 0;
+            height: 30px;
+        }
+        .navbar {
+            background-color:rgb(126, 123, 123);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 60px; /* Adjust based on heading height */
+            left: 0;
+            width: 100%;
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar a {
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            width: calc(100% / 6); /* Distribute evenly */
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+            margin-top:100px;/* Adjusted to ensure space for heading and navbar */
+        }
+        h2 {
+            color: black; /* Change text color to black */
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+        h2:hover {
+            color: #333;
+        }
+        .map {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        .map:hover {
+            transform: scale(1.05);
+        }
+        .navbar .logout-btn {
+            background-color: white;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 10px;
+            margin-top:5px;
+        }
+        .navbar .logout-btn:hover {
+            background-color: #f0f0f0;
+            color: black;
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.459);
+            color: white;
+            text-align: center;
+            padding: 10px;
+           
+            bottom: 0;
+            width: 100%;
+        }
+        .about-us {
+           
+            padding: 30px;
+            background-color: #e9e9e9;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            
+        }
+        .about-us:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .about-us img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 8px;
+            width: 250px;
+            height: auto;
+        }
+        .farmer-spotlights, .testimonials, .events-calendar {
+            margin: 40px 0;
+            padding: 20px;
+            background-color:#e9e9e9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .farmer-spotlights:hover, .testimonials:hover, .events-calendar:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .farmer-spotlight, .testimonial {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .farmer-spotlight img, .testimonial img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+        .events-calendar {
+            padding: 20px;
+        }
+        .event {
+            margin-bottom: 20px;
+        }
+        .event h3 {
+            margin: 0;
+        }
+        
+            
+          
+        .banner-container {
+            width: 80%;
+            height: 350px; /* Fixed height for the banner */
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8); /* White shade background */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 150px;
+            margin-top: 50px;
+        }
+
+        .banner-slides {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%; /* Set the height to 100% of the banner */
+            background-size: cover; /* Ensure the image covers the entire banner */
+            background-position: center;
+            object-fit: cover;
+            object-position: center;
+            /* Center the image */
+        }
+
+        .banner-slides.active {
+            display: block;
+        }
+
+        /* Fade effect for the transition */
+        .fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade.active {
+            opacity: 1;
+        }
+
+        /* Dots Navigation */
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Organic Farming - Palavanatham Village</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="#about-us">About Us</a>
+        <a href="diseases_english.html">Diseases</a>
+        <a href="Government_schemes_english.html">Government Schemes</a>
+        <a href="buy_english.html">Buy</a>
+        <a href="sell_english.html">Sell</a>
+        <a href="logout_english.html" class="logout-btn">Logout</a>
+    </div>
+ 
+
+    <div class="container">
+        <!-- Banner Container -->
+     <div class="banner-container">
+        <div class="banner-slides fade active" style="background-image: url('farmers-working-in-organic-field.jpg')"></div>
+        <div class="banner-slides fade" style="background-image: url('fotor-ai-20240918163541.jpg');"></div>
+        <div class="banner-slides fade" style="background-image: url('fotor-ai-20240918165455_new2.jpg');"></div>
+
+        <!-- Dots Navigation -->
+        <div class="dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+     </div>
+
+
+        <!-- About Us Section -->
+        <div id="about-us" class="about-us" style="margin-top: 50px;">
+            <h2>About Us</h2>
+            <img src="about_us_organic.jpg" alt="Organic Farming">
+            <p>Welcome to our dedicated platform for organic farming in Palavanatham Village. Our site is designed to create a robust connection between buyers who seek high-quality organic produce and the local farmers who produce it with care and dedication. We are committed to promoting sustainable agriculture practices and supporting local farmers in their efforts to deliver fresh, healthy products to the market.</p>
+            <p>Our platform serves as a vital resource for those who are passionate about organic farming. Buyers can explore a variety of organic products directly from the source, ensuring they receive the freshest and most sustainable options available. For farmers, our site offers a valuable channel to showcase their products and reach a wider audience, thus facilitating better market access and opportunities for growth.</p>
+            <p>In addition to connecting buyers and sellers, we provide comprehensive information on agricultural diseases and management practices to support the health of crops and ensure optimal yields. Our site also highlights various government schemes designed to assist farmers in enhancing their agricultural practices and accessing financial support. This information helps farmers make informed decisions and take advantage of available resources.</p>
+            <p>Our goal is to create a thriving organic farming community where both consumers and producers can benefit from a transparent and efficient marketplace. We strive to make it easier for everyone involved to make sustainable choices and support the growth of organic agriculture.</p>
+            <p>Thank you for visiting our platform. We are excited to be part of your journey towards a healthier lifestyle and a more sustainable future.</p>
+        </div>
+         
+        <!-- Embed Google Map -->
+         
+        <h2 >Palavanatham Village</h2>
+        <p >Virudunagar District, 626004, Tamilnadu</p>
+        <div class="map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.040235407495!2d77.7997281!3d9.914347799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05aa6579a0efb5%3A0x8e9ed8519a6d1c3d!2sPalavanatham%2C%20Virudhunagar%20District%2C%20Tamil%20Nadu%20626004!5e0!3m2!1sen!2sin!4v1631012260202!5m2!1sen!2sin" 
+                width="90%" 
+                height="300" 
+                margin-left:150px;
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+
+        <!-- Farmer Spotlights Section -->
+        <div class="farmer-spotlights">
+            <h2>Farmer Spotlights</h2>
+            <div class="farmer-spotlight">
+                <img src="farmer1.jpeg" alt="Rajesh Kumar">
+                <div>
+                    <p><strong>Rajesh Kumar</strong></p>
+                    <p>Rajesh Kumar has been a pivotal figure in promoting organic farming techniques in Palavanatham Village. His dedication to sustainable practices has transformed traditional farming methods, leading to improved soil health and crop yield. Rajesh is known for his innovative use of organic fertilizers and crop rotation, which have significantly enhanced the quality of produce.</p>
+                    <p>Rajesh Kumar's commitment to education is also noteworthy. He regularly conducts workshops for local farmers, sharing his knowledge and experience to help others adopt organic farming practices. His efforts have not only benefited his farm but also contributed to the overall growth of organic agriculture in the region.</p>
+                </div>
+            </div>
+            <div class="farmer-spotlight">
+                <img src="farmer2.png" alt="Deepa Rani">
+                <div>
+                    <p><strong>Deepa Rani</strong></p>
+                    <p>Deepa Rani is a leading advocate for organic farming in Palavanatham Village, specializing in the cultivation of organic vegetables and fruits. Her farm is a model of sustainable agriculture, employing methods that prioritize environmental health and biodiversity.</p>
+                    <p>Deepa Rani's farm is known for its diverse range of produce, including organic tomatoes, cucumbers, and peppers. Her approach to farming emphasizes minimal use of chemicals and a focus on natural pest control methods. She is also actively involved in community outreach, educating others about the benefits of organic farming and encouraging more farmers to transition to sustainable practices.</p>
+                </div>
+            </div>
+            <!-- Add more farmer spotlights as needed -->
+        </div>
+        
+       
+        
+
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <img src="customer1.jpg" alt="Customer 1">
+                <div>
+                    <p><strong>Customer Name 1</strong></p>
+                    <p>"This platform has been incredibly helpful in finding fresh organic produce. Highly recommend!"</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="customer2.jpeg" alt="Customer 2">
+                <div>
+                    <p><strong>Customer Name 2</strong></p>
+                    <p>"I love supporting local farmers through this site. The quality of the produce is excellent."</p>
+                </div>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+
+        <!-- Events Calendar Section -->
+        <div class="events-calendar">
+            <h2>Events Calendar</h2>
+            <div class="event">
+                <h3>Organic Farming Workshop</h3>
+                <p>Date: October 10, 2024</p>
+                <p>Location: Palavanatham Village Community Hall</p>
+                <p>Description: A workshop on sustainable farming practices.</p>
+            </div>
+            <div class="event">
+                <h3>Local Farmers Market</h3>
+                <p>Date: November 5, 2024</p>
+                <p>Location: Palavanatham Village Square</p>
+                <p>Description: An opportunity to buy fresh organic produce directly from local farmers.</p>
+            </div>
+            <!-- Add more events as needed -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Organic Farming. All rights reserved.</p>
+        <p>Contact us: +91-XXXXXXXXXX | Email: slbhavya.eluri@gmail.com</p>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.banner-slides');
+        const dots = document.querySelectorAll('.dot');
+        let timer;
+
+        function showSlides() {
+            // Hide all slides
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                dots[index].classList.remove('active');
+            });
+
+            // Set the current slide
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+
+            // Increment the slide index and reset to 0 if it exceeds the number of slides
+            slideIndex = (slideIndex + 1) % slides.length;
+
+            // Set a timer to automatically show the next slide
+            timer = setTimeout(showSlides, 4000); // 4 seconds between slides
+        }
+
+        function currentSlide(n) {
+            // Manually set the current slide index
+            clearTimeout(timer); // Clear the auto-slide timer
+            slideIndex = n;
+            showSlides(); // Show the manually selected slide
+        }
+
+        // Initialize the slide show
+        showSlides();
+    </script>
+
+    
+        
+</body>
+</html>

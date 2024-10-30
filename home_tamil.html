@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>காணி விவசாயம்</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            background-image: url('_MG_5435c.jpg');
+            background-size: cover; /* Ensure the image covers the entire banner */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            transition: background-color 0.3s;
+           
+        }
+        .heading {
+            background-color: white;
+            color:rgb(126, 123, 123);
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .heading:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .heading h1 {
+            margin: 0;
+            height: 30px;
+        }
+        .navbar {
+            background-color: rgb(126, 123, 123);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 60px; /* Adjust based on heading height */
+            left: 0;
+            width: 100%;
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar a {
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            width: calc(100% / 6); /* Distribute evenly */
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+            /* Adjusted to ensure space for heading and navbar */
+        }
+        h2 {
+            color: black; /* Change text color to black */
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+        h2:hover {
+            color: #333;
+        }
+        .map {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        .map:hover {
+            transform: scale(1.05);
+        }
+        .navbar .logout-btn {
+            background-color: white;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 10px;
+            margin-top:5px;
+        }
+        .navbar .logout-btn:hover {
+            background-color: #f0f0f0;
+            color: black;
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.459);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            
+            bottom: 0;
+            width: 100%;
+        }
+        .about-us {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: #ffffff;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .about-us:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .about-us img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 8px;
+            width: 250px;
+            height: auto;
+        }
+        .farmer-spotlights, .testimonials, .events-calendar {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .farmer-spotlights:hover, .testimonials:hover, .events-calendar:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .farmer-spotlight, .testimonial {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .farmer-spotlight img, .testimonial img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+        .events-calendar {
+            padding: 20px;
+        }
+        .event {
+            margin-bottom: 20px;
+        }
+        .event h3 {
+            margin: 0;
+        }
+        .banner-container {
+            width: 80%;
+            height: 350px; /* Fixed height for the banner */
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8); /* White shade background */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 150px;
+            margin-top:   150px;
+        }
+
+        .banner-slides {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%; /* Set the height to 100% of the banner */
+            background-size: cover; /* Ensure the image covers the entire banner */
+            background-position: center; /* Center the image */
+        }
+
+        .banner-slides.active {
+            display: block;
+        }
+
+        /* Fade effect for the transition */
+        .fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade.active {
+            opacity: 1;
+        }
+
+        /* Dots Navigation */
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>காணி விவசாயம் - பலவனத்தம் கிராமம்</h1>
+    </div>
+
+    <div class="navbar">
+        <a href="#about-us">எங்களை பற்றி</a>
+        <a href="diseases_tamil.html">நோய்கள்</a>
+        <a href="Government_schemes_tamil.html">அரசு திட்டங்கள்</a>
+        <a href="buy_tamil.html">வாங்கவும்</a>
+        <a href="sell_tamil.html">விற்கவும்</a>
+        <a href="logout_tamil.html" class="logout-btn">வெளியேறு</a> 
+    </div>
+
+    <div class="container">
+        <div class="container">
+            <!-- Banner Container -->
+         <div class="banner-container">
+            <div class="banner-slides fade active" style="background-image: url('farmers-working-in-organic-field.jpg');"></div>
+            <div class="banner-slides fade" style="background-image: url('fotor-ai-20240918163541.jpg');"></div>
+            <div class="banner-slides fade" style="background-image: url('fotor-ai-20240918165455_new2.jpg');"></div>
+    
+            <!-- Dots Navigation -->
+            <div class="dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+         </div>
+    
+        
+        
+        
+
+        <!-- About Us Section -->
+        <div id="about-us" class="about-us">
+            <h2>எங்களை பற்றி</h2>
+            <img src="about_us_organic.jpg" alt="Organic Farming">
+            <p>பலவனத்தம் கிராமத்தில் காணி விவசாயத்திற்கு அர்ப்பணிக்கப்பட்ட நமது தளத்திற்கு வரவேற்கிறோம். இத்தளம், உயர்தர காணி உற்பத்திகளைத் தேடும் வாங்குபவர்கள் மற்றும் அந்த உற்பத்திகளை சிரத்தைப்பூர்வமாக உற்பத்தி செய்யும் விவசாயிகள் ஆகியோருக்கு இடையே ஒரு வலுவான இணைப்பை உருவாக்கி தருவதற்காக வடிவமைக்கப்பட்டுள்ளது.</p>
+            <p>நமது தளம், அதிக எளிமையான வழியில் விவசாயிகள் மற்றும் நுகர்வோருக்கு ஒரு பயனுள்ள சந்தையை உருவாக்க முற்படுகிறது.</p>
+        </div>
+        <!-- Embed Google Map -->
+        <h2 style="color:white">பலவனத்தம் கிராமம்</h2>
+        <p style="color:white">விருதுநகர் மாவட்டம், 626004, தமிழ்நாடு</p>
+        <div class="map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.040235407495!2d77.7997281!3d9.914347799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05aa6579a0efb5%3A0x8e9ed8519a6d1c3d!2sPalavanatham%2C%20Virudhunagar%20District%2C%20Tamil%20Nadu%20626004!5e0!3m2!1sen!2sin!4v1631012260202!5m2!1sen!2sin" 
+                width="90%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- Farmer Spotlights Section -->
+        <div class="farmer-spotlights">
+            <h2>விவசாயிகள் நிழற்படங்கள்</h2>
+            <div class="farmer-spotlight">
+                <img src="farmer1.jpeg" alt="ராஜேஷ் குமார்">
+                <div>
+                    <p><strong>ராஜேஷ் குமார்</strong></p>
+                    <p>ராஜேஷ் குமார் பலவனத்தம் கிராமத்தில் காணி விவசாய முறைகளை மேம்படுத்தும் முன்னணி நபராக உள்ளார். அவரது உழைப்பு மற்றும் புதுமையான முயற்சிகள் விவசாயிகளுக்கு சிறந்த விளைச்சல் தருகின்றன.</p>
+                </div>
+            </div>
+            <div class="farmer-spotlight">
+                <img src="farmer2.png" alt="சீதா ராணி">
+                <div>
+                    <p><strong>சீதா ராணி</strong></p>
+                    <p>சீதா ராணி விவசாயத் துறையில் பெண்களின் பங்களிப்பை ஊக்குவிக்கின்றார். எளிய முறைகளை பயன்படுத்தி, பசுமை தொழில்நுட்பங்களை பின்பற்றி அதிக விளைச்சலையும் தரம் மிகுந்த விளைவுகளையும் பெறுகின்றார்.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h2>விவசாயிகள் கருத்துக்கள்</h2>
+            <div class="testimonial">
+                <img src="customer1.jpg" alt="கருத்து">
+                <div>
+                    <p><strong>பாஸ்கர்</strong></p>
+                    <p>“நமது கிராமத்தில் காணி விவசாயத்தை வெற்றிகரமாக மேற்கொள்ள இந்த தளம் எனக்கு மிகவும் பயனுள்ளதாக இருந்தது.”</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Events Calendar Section -->
+        <div class="events-calendar">
+            <h2>நிகழ்வுகள்</h2>
+            <div class="event">
+                <h3>விவசாயிகள் சந்தை</h3>
+                <p>வருவாய் அதிகரிக்க எங்கள் கிராமத்தில் ஒரு சந்தை நடத்தப்படுகிறது, விவசாயிகள் தங்கள் உற்பத்திகளை நேரடியாக விற்பனை செய்ய முடியும்.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <footer>
+            <p>&copy; 2024 இயற்கை விவசாயம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+            <p>எங்களை தொடர்பு கொள்ளவும்: +91-XXXXXXXXX | மின்னஞ்சல்: slbhavya.eluri@gmail.com</p>
+        </footer>
+    </div>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.banner-slides');
+        const dots = document.querySelectorAll('.dot');
+        let timer;
+
+        function showSlides() {
+            // Hide all slides
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                dots[index].classList.remove('active');
+            });
+
+            // Set the current slide
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+
+            // Increment the slide index and reset to 0 if it exceeds the number of slides
+            slideIndex = (slideIndex + 1) % slides.length;
+
+            // Set a timer to automatically show the next slide
+            timer = setTimeout(showSlides, 4000); // 4 seconds between slides
+        }
+
+        function currentSlide(n) {
+            // Manually set the current slide index
+            clearTimeout(timer); // Clear the auto-slide timer
+            slideIndex = n;
+            showSlides(); // Show the manually selected slide
+        }
+
+        // Initialize the slide show
+        showSlides();
+    </script>
+</body>
+</html>

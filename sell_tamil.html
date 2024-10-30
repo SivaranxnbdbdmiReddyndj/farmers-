@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ஓர்கானிக் பொருட்களை விற்கவும்</title>
+    <style>
+        /* Reset some default styling */
+        body, h1, h2, p, ul, li, a, form {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color:#45a049;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        /* Main section styling */
+        main {
+            padding: 1rem;
+        }
+
+        .intro {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .intro:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .products, .sellers, .contact {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .products h2, .sellers h2, .contact h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .products img, .sellers img {
+            width: 30%;
+            height:auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .products img:hover, .sellers img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-item, .seller-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+
+        .product-item:last-child, .seller-item:last-child {
+            border-bottom: none;
+        }
+
+        .product-item h3, .seller-item h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .product-item p, .seller-item p {
+            margin: 0.5rem 0;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact input, .contact textarea {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .contact button {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact button:hover {
+            background-color:#45a049;
+        }
+
+        /* Seller item styling */
+        .seller-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .seller-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .seller-item .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .item-details p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ஓர்கானிக் பொருட்களை விற்கவும்</h1>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>எங்கள் ஓர்கானிக் சந்தைக்கு வரவேற்கிறோம்</h2>
+            <p>நம்பகமான விற்பனையாளர்களிடமிருந்து நேரடியாகச் சிறந்த ஓர்கானிக் பொருட்களைத் தேடுங்கள். எங்கள் தயாரிப்புகளை ஆராயுங்கள் மற்றும் எங்களிடம் உங்கள் கேள்விகள் அல்லது ஆர்டர்களுக்கான தொடர்புகளை உருவாக்குங்கள்.</p>
+        </section>
+
+        <section class="products">
+            <h2>கிடைக்கக் கூடிய ஓர்கானிக் பொருட்கள்</h2>
+            <div class="product-item">
+                <img src="organic1.jpg" alt="ஓர்கானிக் பொருள் 1">
+                <h3>தக்காளி</h3>
+                <p><strong>விலை:</strong> ஒரு கிலோவுக்கு 30</p>
+                <p><strong>அளவு:</strong> கிடைக்கும்</p>
+            </div>
+            <div class="product-item">
+                <img src="organic2.jpeg" alt="ஓர்கானிக் பொருள் 2">
+                <h3>வாழைப்பழம்</h3>
+                <p><strong>விலை:</strong> ஒரு டசனுக்கு 60</p>
+                <p><strong>அளவு:</strong>கிடைக்கும் </p>
+            </div>
+        </section>
+
+        <section class="sellers">
+            <h2>எங்கள் நம்பகமான விற்பனையாளர்கள்</h2>
+            <div class="seller-item">
+                <img src="sell1.jpeg" alt="விற்பனையாளர் 1">
+                <h3>விற்பனையாளர் A</h3>
+                <p><strong>சிறப்பு:</strong> ஓர்கானிக் காய்கறிகள்</p>
+                <p><strong>தொடர்பு:</strong> sellerA@example.com</p>
+                <div class="item-details">
+                    <p><strong>பொருள்:</strong> இனிப்பு சோளம்</p>
+                    <p><strong>விலை:</strong> ஒரு துண்டுக்கு 10</p>
+                    <p><strong>அளவு:</strong>கிடைக்கும் </p>
+                </div>
+            </div>
+            <div class="seller-item">
+                <img src="sell2.jpeg" alt="விற்பனையாளர் 2">
+                <h3>விற்பனையாளர் B</h3>
+                <p><strong>சிறப்பு:</strong> ஓர்கானிக் பழங்கள் மற்றும் மூலிகைகள்</p>
+                <p><strong>தொடர்பு:</strong> sellerB@example.com</p>
+                <div class="item-details">
+                    <p><strong>பொருள்:</strong> மாம்பழங்கள்</p>
+                    <p><strong>விலை:</strong> ஒரு கிலோ 60</p>
+                    <p><strong>அளவு:</strong> கிடைக்கும்</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>எங்களை தொடர்பு கொள்ளுங்கள்</h2>
+            <form>
+                <input type="text" placeholder="உங்கள் பெயர்" required>
+                <input type="email" placeholder="உங்கள் மின்னஞ்சல்" required>
+                <textarea rows="4" placeholder="உங்கள் செய்தி" required></textarea>
+                <button type="submit">செய்தி அனுப்புங்கள்</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <footer style="background-color:#45a049;color:white">
+            <p>&copy; 2024 இயற்கை விவசாயம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+            <p>எங்களை தொடர்பு கொள்ளவும்: +916302779701 | மின்னஞ்சல்: sivaramservices@gmail.com</p>
+        </footer>
+    </footer>
+</body>
+</html>
